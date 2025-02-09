@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ff4d6d;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 5px black;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+        .no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine? 💖</h1>
+    <div class="buttons">
+        <a href="yes.html"><button class="yes">Yes</button></a>
+        <button class="no" onclick="multiplyYesButtons()">No</button>
+    </div>
+
+    <script>
+        function multiplyYesButtons() {
+            let noButton = document.querySelector('.no');
+            for (let i = 0; i < 10; i++) {
+                let yesButton = document.createElement("button");
+                yesButton.className = "yes";
+                yesButton.innerText = "Yes";
+                yesButton.onclick = function() {
+                    window.location.href = "yes.html";
+                };
+                yesButton.style.position = "absolute";
+                yesButton.style.left = Math.random() * 80 + "vw";
+                yesButton.style.top = Math.random() * 80 + "vh";
+                document.body.appendChild(yesButton);
+            }
+            noButton.style.display = "none";
+        }
+    </script>
+</body>
+</html>
